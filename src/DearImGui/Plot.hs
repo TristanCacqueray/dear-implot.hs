@@ -47,3 +47,12 @@ plotLine desc xs ys = liftIO $ do
     withArray (map realToFrac xs) \xsPtr -> do
       withArray (map realToFrac ys) \ysPtr -> do
         [C.exp| void { PlotLine( $(char* descPtr), $(float *xsPtr), $(float *ysPtr), $(int size) ) } |]
+
+setNextPlotLimits :: MonadIO m => (Double, Double) -> (Double, Double) -> m ()
+setNextPlotLimits (minX, maxX) (minY, maxY) =
+  liftIO [C.exp| void { SetNextPlotLimits( $(double minX'), $(double maxX'), $(double minY'), $(double maxY') ) } |]
+  where
+    minX' = realToFrac minX
+    maxX' = realToFrac maxX
+    minY' = realToFrac minY
+    maxY' = realToFrac maxY
