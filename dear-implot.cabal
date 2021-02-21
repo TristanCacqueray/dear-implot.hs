@@ -22,17 +22,26 @@ library
   include-dirs:
     implot
     imgui
-  build-depends:
-      base
-    , containers
-    , managed
-    , inline-c
-    , inline-c-cpp
-    , StateVar
-    , dear-imgui
+  build-depends: base
+               , StateVar
+               , containers
+               , dear-imgui
+               , inline-c
+               , inline-c-cpp
+               , managed
 
 executable test
   main-is: Main.hs
   default-language: Haskell2010
-  build-depends: base, sdl2, gl, dear-imgui, dear-implot, managed
+  build-depends: base
+               , binary
+               , bytestring
+               , dear-imgui
+               , dear-implot
+               , gl
+               , managed
+               , pipes
+               , pipes-safe
+               , sdl2
+               , pipes-pulse-simple
   ghc-options: -Wall

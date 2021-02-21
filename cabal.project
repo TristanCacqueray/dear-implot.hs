@@ -1,2 +1,2 @@
-packages: . ../../haskell-game/dear-imgui.hs/
+packages: . ../../haskell-game/dear-imgui.hs/ ../pipes-pulse-simple/
 flags: +sdl +opengl2 -vulkan
