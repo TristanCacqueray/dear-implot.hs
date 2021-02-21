@@ -1,0 +1,38 @@
+cabal-version: 3.0
+name: dear-implot
+version: 1.0.0
+build-type: Simple
+
+library
+  exposed-modules:
+    DearImGui.Plot
+  hs-source-dirs:
+    src
+  default-language:
+    Haskell2010
+  ghc-options:
+    -Wall
+  cxx-sources:
+    implot/implot.cpp
+    implot/implot_items.cpp
+  cxx-options:
+    -std=c++11
+  extra-libraries:
+    stdc++
+  include-dirs:
+    implot
+    imgui
+  build-depends:
+      base
+    , containers
+    , managed
+    , inline-c
+    , inline-c-cpp
+    , StateVar
+    , dear-imgui
+
+executable test
+  main-is: Main.hs
+  default-language: Haskell2010
+  build-depends: base, sdl2, gl, dear-imgui, dear-implot, managed
+  ghc-options: -Wall
